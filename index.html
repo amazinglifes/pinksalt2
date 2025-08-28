@@ -558,6 +558,38 @@ src="https://www.facebook.com/tr?id=741608908207883&ev=PageView&noscript=1"
 
     // ============= Main Application Logic =============
 
+
+// Função para capturar UTMs (UTMify + querystring manual)
+function getUtmParams() {
+  const params = [
+    "utm_source",
+    "utm_medium",
+    "utm_campaign",
+    "utm_term",
+    "utm_content",
+    "xcod" // extra custom param
+  ];
+  let utmObj = {};
+
+  // Primeiro tenta pegar do localStorage (UTMify salva assim)
+  params.forEach(p => {
+    const value = window.localStorage.getItem(`utmify_${p}`);
+    if (value) utmObj[p] = value;
+  });
+
+  // Agora também pega da URL (querystring)
+  const urlParams = new URLSearchParams(window.location.search);
+  params.forEach(p => {
+    if (urlParams.has(p) && !utmObj[p]) {
+      utmObj[p] = urlParams.get(p);
+    }
+  });
+
+  return utmObj;
+}
+
+      
+
     document.addEventListener('DOMContentLoaded', function() {
       const form = document.getElementById('checkoutForm');
       const spinner = document.getElementById('buttonSpinner');
@@ -666,6 +698,7 @@ src="https://www.facebook.com/tr?id=741608908207883&ev=PageView&noscript=1"
   </script>
 </body>
 </html>
+
 
 
 
