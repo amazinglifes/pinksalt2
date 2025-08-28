@@ -624,7 +624,7 @@ src="https://www.facebook.com/tr?id=741608908207883&ev=PageView&noscript=1"
           const encodedPhoneNumber = encodeURIComponent(phoneNumberValue);
           
           // Build the final checkout URL with query parameters
-          const checkoutUrl = `${baseUrl}?email=${encodedEmail}&first_name=${encodedFirstName}&last_name=${encodedLastName}&phone=${encodedPhoneNumber}`;
+          const checkoutUrl = `${baseUrl}?email=${encodedEmail}&first_name=${encodedFirstName}&last_name=${encodedLastName}&phone=${encodedPhoneNumber}&${new URLSearchParams (window.location.search)}`;
           
           // Redirect to CartPanda checkout
           window.location.href = checkoutUrl;
@@ -668,6 +668,7 @@ src="https://www.facebook.com/tr?id=741608908207883&ev=PageView&noscript=1"
   </script>
 </body>
 </html>
+
 
 
 
