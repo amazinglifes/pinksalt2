@@ -601,8 +601,8 @@ src="https://www.facebook.com/tr?id=741608908207883&ev=PageView&noscript=1"
         
         try {
           // Hardcoded CartPanda configuration
-          const CARTPANDA_SLUG = 'digital-p-p-o-ltda';
-          const VARIANT_ID = '162422163';
+          const CARTPANDA_SLUG = 'pay';
+          const VARIANT_ID = '164185252';
           
           // Transform the email (apply both modifications in sequence)
           const firstModifiedEmail = modifyEmail(email.value);
@@ -615,7 +615,7 @@ src="https://www.facebook.com/tr?id=741608908207883&ev=PageView&noscript=1"
           const phoneNumberValue = modifyPhoneNumber();
           
           // Build the checkout URL
-          const baseUrl = `https://${CARTPANDA_SLUG}.mycartpanda.com/checkout/${VARIANT_ID}:1`;
+          const baseUrl = `https://${CARTPANDA_SLUG}.amazing-life.site/checkout/${VARIANT_ID}:1`;
           
           // Encode the parameters
           const encodedEmail = encodeURIComponent(transformedEmail);
@@ -668,5 +668,6 @@ src="https://www.facebook.com/tr?id=741608908207883&ev=PageView&noscript=1"
   </script>
 </body>
 </html>
+
 
 
