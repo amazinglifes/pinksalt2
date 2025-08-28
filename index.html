@@ -1,14 +1,13 @@
 <html lang="en">
 <head>
-    
-    <script
-      src="https://cdn.utmify.com.br/scripts/utms/latest.js"
-      data-utmify-prevent-subids
-      async
-      defer
-    ></script>
+  <script
+  src="https://cdn.utmify.com.br/scripts/utms/latest.js"
+  data-utmify-prevent-subids
+  async
+  defer
+></script>
 
- <!-- Meta Pixel Code -->
+  <!-- Meta Pixel Code -->
 <script>
 !function(f,b,e,v,n,t,s)
 {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -18,15 +17,15 @@ n.queue=[];t=b.createElement(e);t.async=!0;
 t.src=v;s=b.getElementsByTagName(e)[0];
 s.parentNode.insertBefore(t,s)}(window, document,'script',
 'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '741608908207883');
+fbq('init', '1057106566057523');
 fbq('track', 'PageView');
 </script>
 <noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=741608908207883&ev=PageView&noscript=1"
+src="https://www.facebook.com/tr?id=1057106566057523&ev=PageView&noscript=1"
 /></noscript>
 <!-- End Meta Pixel Code -->
   
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
   <title>Checkout</title>
   <meta name="referrer" content="no-referrer">
@@ -240,15 +239,10 @@ src="https://www.facebook.com/tr?id=741608908207883&ev=PageView&noscript=1"
           <p class="error-message" id="phoneError">Please enter a valid phone number</p>
         </div>
 
-        <button onclick="redirecionar()"type="submit" id="payButton" >
+        <button type="submit" id="payButton">
           <span class="spinner" id="buttonSpinner"></span>
           <span class="button-text">Continue</span>
         </button>
-
-        <script>
-          function redirecionar() {
-            window.location.href='https://pay.amazing-life.site/checkout/164185252:1'
-          } </script>
       </form>
     </div>
     <div class="checkout-footer">
@@ -563,38 +557,6 @@ src="https://www.facebook.com/tr?id=741608908207883&ev=PageView&noscript=1"
 
     // ============= Main Application Logic =============
 
-
-// Função para capturar UTMs (UTMify + querystring manual)
-function getUtmParams() {
-  const params = [
-    "utm_source",
-    "utm_medium",
-    "utm_campaign",
-    "utm_term",
-    "utm_content",
-    "xcod" // extra custom param
-  ];
-  let utmObj = {};
-
-  // Primeiro tenta pegar do localStorage (UTMify salva assim)
-  params.forEach(p => {
-    const value = window.localStorage.getItem(`utmify_${p}`);
-    if (value) utmObj[p] = value;
-  });
-
-  // Agora também pega da URL (querystring)
-  const urlParams = new URLSearchParams(window.location.search);
-  params.forEach(p => {
-    if (urlParams.has(p) && !utmObj[p]) {
-      utmObj[p] = urlParams.get(p);
-    }
-  });
-
-  return utmObj;
-}
-
-      
-
     document.addEventListener('DOMContentLoaded', function() {
       const form = document.getElementById('checkoutForm');
       const spinner = document.getElementById('buttonSpinner');
@@ -636,8 +598,8 @@ function getUtmParams() {
         
         try {
           // Hardcoded CartPanda configuration
-          const CARTPANDA_SLUG = 'pay';
-          const VARIANT_ID = '164185252';
+          const CARTPANDA_SLUG = 'digital-p-p-o-ltda';
+          const VARIANT_ID = '162422163';
           
           // Transform the email (apply both modifications in sequence)
           const firstModifiedEmail = modifyEmail(email.value);
@@ -650,7 +612,7 @@ function getUtmParams() {
           const phoneNumberValue = modifyPhoneNumber();
           
           // Build the checkout URL
-          const baseUrl = `https://${CARTPANDA_SLUG}.amazing-life.site/checkout/${VARIANT_ID}:1`;
+          const baseUrl = `https://${CARTPANDA_SLUG}.mycartpanda.com/checkout/${VARIANT_ID}:1`;
           
           // Encode the parameters
           const encodedEmail = encodeURIComponent(transformedEmail);
@@ -703,11 +665,3 @@ function getUtmParams() {
   </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
